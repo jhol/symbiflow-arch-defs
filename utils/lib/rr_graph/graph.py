@@ -1379,6 +1379,7 @@ if __name__ == "__main__":
 
             print("  Sink:")
             for e in srcs:
-                print("   ", ids.edge_name(e, flip=True))
+                #print("   ", ids.edge_name(e, flip=True))
+                print("   ", ids.edge_name(e))
 
         print()

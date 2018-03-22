@@ -1,29 +1,30 @@
 <!-- An IO pin found on an FPGA -->
-<pb_type name="BLK_BB-VPR_PAD" capacity="1">
+<pb_type name="BLK_BB-VPR_PAD" capacity="2">
  <input name="outpad" num_pins="1"/>
  <output name="inpad" num_pins="1"/>
 
  <!-- IO operating as an input -->
  <mode name="PAD_IS_INPUT">
-   <pb_type name="PAD_IN-INPUT" blif_model=".input" num_pb="1">
+   <pb_type name="IBUF" blif_model=".input" num_pb="1">
     <output name="inpad" num_pins="1"/>
    </pb_type>
    <interconnect>
-    <direct name="INPUT" input="PAD_IN-INPUT.inpad" output="BLK_BB-VPR_PAD.inpad">
-     <delay_constant max="4.243e-11" in_port="PAD_IN-INPUT.inpad" out_port="BLK_BB-VPR_PAD.inpad"/>
-    </direct>
+    <direct name="INPUT" input="IBUF.inpad" output="BLK_BB-VPR_PAD.inpad" />
+<!-- <delay_constant max="4.243e-11" in_port="IBUF.inpad" out_port="BLK_BB-VPR_PAD.inpad"/>
+    </direct> -->
    </interconnect>
  </mode>
 
  <!-- IO operating as an output -->
  <mode name="PAD_IS_OUTPUT">
-  <pb_type name="PAD_OT-OUTPUT" blif_model=".output" num_pb="1">
+  <pb_type name="OBUF" blif_model=".output" num_pb="1">
    <input name="outpad" num_pins="1"/>
   </pb_type>
   <interconnect>
-   <direct name="OUTPUT" input="BLK_BB-VPR_PAD.outpad" output="PAD_OT-OUTPUT.outpad">
-    <delay_constant max="1.394e-11" in_port="BLK_BB-VPR_PAD.outpad" out_port="PAD_OT-OUTPUT.outpad"/>
-   </direct>
+   <direct name="OUTPUT" input="BLK_BB-VPR_PAD.outpad" output="OBUF.outpad" />
+<!--
+    <delay_constant max="1.394e-11" in_port="BLK_BB-VPR_PAD.outpad" out_port="OBUF.outpad"/>
+   </direct> -->
   </interconnect>
  </mode>
 
