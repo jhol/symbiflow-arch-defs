@@ -1376,10 +1376,14 @@ if __name__ == "__main__":
             print("  Sources:")
             for e in srcs:
                 print("   ", ids.edge_name(e))
+            if not srcs:
+                print("   ", None)
 
             print("  Sink:")
-            for e in srcs:
-                #print("   ", ids.edge_name(e, flip=True))
-                print("   ", ids.edge_name(e))
+            for e in snks:
+                print("   ", ids.edge_name(e, flip=True))
+                #print("   ", ids.edge_name(e))
+            if not snks:
+                print("   ", None)
 
         print()
