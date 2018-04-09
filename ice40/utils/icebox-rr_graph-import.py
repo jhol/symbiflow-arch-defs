@@ -54,7 +54,7 @@ For each wire, we work out the "edges" (IE connection to other wires / pins).
 from os.path import commonprefix
 
 import icebox
-import getopt, sys, re
+import getopt, os.path, re, sys
 
 import operator
 from collections import namedtuple, OrderedDict
@@ -67,7 +67,7 @@ mode_8k = False
 
 def usage():
     print("""
-Usage: icebox_chipdb [options] [bitmap.asc]
+Usage: {name} [options] [bitmap.asc]
 
     -3
         create chipdb for 384 device
@@ -77,7 +77,7 @@ Usage: icebox_chipdb [options] [bitmap.asc]
 
     -8
         create chipdb for 8k device
-""")
+""".format(name=os.path.basename(sys.argv[0])))
     sys.exit(0)
 
 VERBOSE=True
