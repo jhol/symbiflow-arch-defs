@@ -693,12 +693,17 @@ for x in (0, ic.max_x):
         corner_tiles.add((x, y))
 
 # Should we just use consistent names instead?
-tile_name_map = {"IO" : "PIO", "LOGIC" : "PLB", "RAMB" : "RAMB", "RAMT" : "RAMT"}
+tile_name_map = {
+  "IO" : "BLK_BB-VPR_PAD",
+  "LOGIC" : "PLB",
+  "RAMB" : "RAMB",
+  "RAMT" : "RAMT"
+}
 
 # Add the tiles
 # ------------------------------
 tile_types = {
-    "PIO": {
+    "BLK_BB-VPR_PAD": {
         "id": 1,
         "pin_map": OrderedDict([
             ('outclk', ('in', 0)),
