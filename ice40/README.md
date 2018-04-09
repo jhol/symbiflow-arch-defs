@@ -7,8 +7,8 @@
 
    * [`arch/ice40-virt`](arch/ice40-virt) - Real iCE40 layout and tiles but
      using make up interconnects. Verilog to Routing architecture definition
-     isn't able to generate /exactly/ model the iCE40 routing interconnects,
-     but this is pretty close.
+     isn't able to /exactly/ model the iCE40 routing interconnects, but this
+     is pretty close.
 
    * [`arch/ice40`](arch/ice40) - Real iCE40 layout and tiles and real
      interconnects generated from
