@@ -94,7 +94,7 @@ $(OUTPUT_DIR)/%.patched.rr_graph.xml: $(OUTPUT_DIR)/%.rr_graph.xml $(RR_PATCH_TO
 	$(VPR_FULL_CMD) $(notdir $<) --gen_post_synthesis_netlist on
 
 %.gdb: $(OUTPUT_DIR)/%.eblif $(DEVICE_FILE)
-	cd $(OUTPUT_DIR); gdb --args $(VPR_CMD) $(notdir $<) --echo_file on --gen_post_synthesis_netlist on
+	cd $(OUTPUT_DIR); gdb --args $(VPR_CMD) $(notdir $<) --echo_file on --disp on --gen_post_synthesis_netlist on
 
 
 ALL_OUTPUT = $(patsubst %.v,$(OUTPUT_DIR)/%.rr_graph.xml,$(wildcard *.v)) $(patsubst %.eblif,$(OUTPUT_DIR)/%.rr_graph.xml,$(wildcard *.eblif))
