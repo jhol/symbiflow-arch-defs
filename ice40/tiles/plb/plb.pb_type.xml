@@ -1,8 +1,6 @@
 <!-- set: ai sw=1 ts=1 sta et -->
 <pb_type name="PLB" xmlns:xi="http://www.w3.org/2001/XInclude">
 
- <clock  name="clk"  num_pins="1" equivalent="false"/>
-
  <!-- carry in / carry out -->
  <output name="carry_out" num_pins="1" equivalent="false"/>
  <input  name="carry_in"  num_pins="1" equivalent="false"/>
@@ -585,21 +583,14 @@
   <!-- Logic Global -->
   <mux name="lutff_global/i_cen" input="local_g[0].o[2] local_g[1].o[3] local_g[2].o[2] local_g[3].o[3] glb_netwk[1].o glb_netwk[3].o glb_netwk[5].o glb_netwk[7].o" output="lutff_global.i_cen" />
   <mux name="lutff_global/i_s_r" input="local_g[0].o[4] local_g[1].o[5] local_g[2].o[4] local_g[3].o[5] glb_netwk[0].o glb_netwk[2].o glb_netwk[4].o glb_netwk[6].o" output="lutff_global.i_s_r" />
-  <!--
-  <mux name="lutff_global/i_clk" input="local_g[0].o[0] local_g[1].o[1] local_g[2].o[0] local_g[3].o[1] glb_netwk[0].o glb_netwk[1].o glb_netwk[2].o glb_netwk[3].o glb_netwk[4].o glb_netwk[5].o glb_netwk[6].o glb_netwk[7].o"                                                                             output="lutff_global._clk" />
-  -->
+  <mux name="lutff_global/i_clk" input="local_g[0].o[0] local_g[1].o[1] local_g[2].o[0] local_g[3].o[1] glb_netwk[0].o glb_netwk[1].o glb_netwk[2].o glb_netwk[3].o glb_netwk[4].o glb_netwk[5].o glb_netwk[6].o glb_netwk[7].o" output="lutff_global.i_clk" />
   <direct name="lutff_global->plb_local.cen" input="lutff_global.o_cen" output="plb_local.cen"/>
-  <!--
   <direct name="lutff_global->plb_local.clk" input="lutff_global.o_clk" output="plb_local.clk"/>
-  -->
-  <direct name="lutff_global->plb_local.clk" input="PLB.clk" output="plb_local.clk"/>
   <direct name="lutff_global->plb_local.s_r" input="lutff_global.o_s_r" output="plb_local.s_r" />
  </interconnect>
 
  <pinlocations pattern="custom">
   <loc side="top" xoffset="0" yoffset="0">
-   PLB.clk
-
    PLB.i_glb_netwk
    PLB.o_glb_netwk
 
