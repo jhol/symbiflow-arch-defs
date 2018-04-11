@@ -35,9 +35,7 @@
   <direct name="lutff.cen" input="lutff.cen" output="SB_FF.E"/>
   <direct name="lutff.clk" input="lutff.clk" output="SB_FF.C"/>
   <direct name="lutff.s_r" input="lutff.s_r" output="SB_FF.S"/>
-  <direct name="LUT2FF"    input="LUT.O"     output="SB_FF.D"><!--
-   <pack_pattern name="LUT2FF" in_port="LUT.O" out_port="SB_FF.D" />
-  --></direct>
+  <direct name="LUT2FF"    input="LUT.O"     output="SB_FF.D"/>
 
   <direct name="lutff.lout" input="LUT.O"         output="lutff.lout" />
   <mux    name="lutff.out"  input="LUT.O SB_FF.Q" output="lutff.out"  />
