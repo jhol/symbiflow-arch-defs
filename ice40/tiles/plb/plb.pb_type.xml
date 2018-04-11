@@ -102,17 +102,6 @@
  <!-- # Logic units                                                  # -->
  <!-- ################################################################ -->
 
- <pb_type name="lutff_global" num_pb="1">
-  <input name="i_cen" num_pins="1" equivalent="false" /><output name="o_cen" num_pins="1" equivalent="false" />
-  <clock name="i_clk" num_pins="1" equivalent="false" /><output name="o_clk" num_pins="1" equivalent="false" />
-  <input name="i_s_r" num_pins="1" equivalent="false" /><output name="o_s_r" num_pins="1" equivalent="false" />
-  <interconnect>
-   <direct name="cen" input="lutff_global.i_cen" output="lutff_global.o_cen"/>
-   <direct name="clk" input="lutff_global.i_clk" output="lutff_global.o_clk"/>
-   <direct name="s_r" input="lutff_global.i_s_r" output="lutff_global.o_s_r"/>
-  </interconnect>
- </pb_type>
-
  <xi:include href="../../cells/plb_local/plb_local.pb_type.xml"/>
 
  <interconnect>
@@ -583,17 +572,9 @@
   <mux name="plb_local.in2[7]"     input="local_g[0].o[1] local_g[0].o[3] local_g[1].o[0] local_g[1].o[2] local_g[2].o[1] local_g[2].o[3] local_g[3].o[0] local_g[3].o[2] local_g[0].o[5] local_g[0].o[7] local_g[1].o[4] local_g[1].o[6] local_g[2].o[5] local_g[2].o[7] local_g[3].o[4] local_g[3].o[6] plb_local.lout[6]" output="plb_local.in2[7]" />
   <mux name="plb_local.in3[7]"     input="plb_local.cout[6]   local_g[0].o[2] local_g[1].o[1] local_g[1].o[3] local_g[2].o[0] local_g[2].o[2] local_g[3].o[1] local_g[3].o[3] local_g[0].o[4] local_g[0].o[6] local_g[1].o[5] local_g[1].o[7] local_g[2].o[4] local_g[2].o[6] local_g[3].o[5] local_g[3].o[7]              " output="plb_local.in3[7]" />
   <!-- Logic Global -->
-  <mux name="lutff_global/i_cen" input="local_g[0].o[2] local_g[1].o[3] local_g[2].o[2] local_g[3].o[3] glb_netwk[1].o glb_netwk[3].o glb_netwk[5].o glb_netwk[7].o" output="lutff_global.i_cen" />
-  <mux name="lutff_global/i_s_r" input="local_g[0].o[4] local_g[1].o[5] local_g[2].o[4] local_g[3].o[5] glb_netwk[0].o glb_netwk[2].o glb_netwk[4].o glb_netwk[6].o" output="lutff_global.i_s_r" />
-  <!--
-  <mux name="lutff_global/i_clk" input="local_g[0].o[0] local_g[1].o[1] local_g[2].o[0] local_g[3].o[1] glb_netwk[0].o glb_netwk[1].o glb_netwk[2].o glb_netwk[3].o glb_netwk[4].o glb_netwk[5].o glb_netwk[6].o glb_netwk[7].o"                                                                             output="lutff_global._clk" />
-  -->
-  <direct name="lutff_global->plb_local.cen" input="lutff_global.o_cen" output="plb_local.cen"/>
-  <!--
-  <direct name="lutff_global->plb_local.clk" input="lutff_global.o_clk" output="plb_local.clk"/>
-  -->
-  <direct name="lutff_global->plb_local.clk" input="PLB.clk" output="plb_local.clk"/>
-  <direct name="lutff_global->plb_local.s_r" input="lutff_global.o_s_r" output="plb_local.s_r" />
+  <mux name="plb_local.cen" input="local_g[0].o[2] local_g[1].o[3] local_g[2].o[2] local_g[3].o[3] glb_netwk[1].o glb_netwk[3].o glb_netwk[5].o glb_netwk[7].o" output="plb_local.cen" />
+  <mux name="plb_local.s_r" input="local_g[0].o[4] local_g[1].o[5] local_g[2].o[4] local_g[3].o[5] glb_netwk[0].o glb_netwk[2].o glb_netwk[4].o glb_netwk[6].o" output="plb_local.s_r" />
+  <mux name="PLB.clk" input="local_g[0].o[0] local_g[1].o[1] local_g[2].o[0] local_g[3].o[1] glb_netwk[0].o glb_netwk[1].o glb_netwk[2].o glb_netwk[3].o glb_netwk[4].o glb_netwk[5].o glb_netwk[6].o glb_netwk[7].o" output="plb_local.clk" />
  </interconnect>
 
  <pinlocations pattern="custom">
