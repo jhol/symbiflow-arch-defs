@@ -17,8 +17,204 @@
  <output name="cout" num_pins="8" equivalent="false"/>
  <input  name="cin"  num_pins="1" equivalent="false"/>
 
+ <mode name="dff">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dff.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFF.Q" output="lutff.out"  />
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFF.C"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFF.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffe">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffe.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFE.Q" output="lutff.out"  />
+    <direct name="lutff.cen" input="lutff.cen" output="SB_DFFE.E"/>
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFE.C"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFE.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffer">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffer.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFER.Q" output="lutff.out"  />
+    <direct name="lutff.cen" input="lutff.cen" output="SB_DFFER.E"/>
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFER.C"/>
+    <direct name="lutff.s_r" input="lutff.s_r" output="SB_DFFER.R"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFER.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffesr">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffesr.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFESR.Q" output="lutff.out"  />
+    <direct name="lutff.cen" input="lutff.cen" output="SB_DFFESR.E"/>
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFESR.C"/>
+    <direct name="lutff.s_r" input="lutff.s_r" output="SB_DFFESR.R"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFESR.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffess">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffess.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFESS.Q" output="lutff.out"  />
+    <direct name="lutff.cen" input="lutff.cen" output="SB_DFFESS.E"/>
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFESS.C"/>
+    <direct name="lutff.s_r" input="lutff.s_r" output="SB_DFFESS.S"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFESS.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffr">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffr.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFR.Q" output="lutff.out"  />
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFR.C"/>
+    <direct name="lutff.s_r" input="lutff.s_r" output="SB_DFFR.R"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFR.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffs">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffs.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFS.Q" output="lutff.out"  />
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFS.C"/>
+    <direct name="lutff.s_r" input="lutff.s_r" output="SB_DFFS.S"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFS.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffsr">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffsr.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFSR.Q" output="lutff.out"  />
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFSR.C"/>
+    <direct name="lutff.s_r" input="lutff.s_r" output="SB_DFFSR.R"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFSR.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
+ <mode name="dffss">
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/sb_dffss.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O SB_DFFSS.Q" output="lutff.out"  />
+    <direct name="lutff.clk" input="lutff.clk" output="SB_DFFSS.C"/>
+    <direct name="lutff.s_r" input="lutff.s_r" output="SB_DFFSS.S"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="SB_DFFSS.D"/>
+   </interconnect>
+  </pb_type>
+
+  <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
+ </mode>
+
  <mode name="ff">
-  <xi:include href="../../cells/lutff/lutff.pb_type.xml"/>
+  <pb_type name="lutff" num_pb="8">
+   <xi:include href="../../cells/lutff/lutff.ports.xml" xpointer="xpointer(ports/child::node())"/>
+   <xi:include href="../../primitives/sb_lut/sb_lut.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_ff/vpr_ff.pb_type.xml"/>
+   <xi:include href="../../primitives/sb_carry/sb_carry.pb_type.xml"/>
+
+   <interconnect>
+    <xi:include href="../../cells/lutff/lutff.interconnect.xml" xpointer="xpointer(interconnect/child::node())"/>
+
+    <mux    name="lutff.out"  input="LUT.O VPR_FF.Q" output="lutff.out"  />
+    <direct name="lutff.clk" input="lutff.clk" output="VPR_FF.clk"/>
+    <direct name="LUT2FF"    input="LUT.O"     output="VPR_FF.D"/>
+   </interconnect>
+  </pb_type>
+
   <xi:include href="../../cells/plb_local/plb_local.interconnect.xml"/>
  </mode>
 </pb_type>

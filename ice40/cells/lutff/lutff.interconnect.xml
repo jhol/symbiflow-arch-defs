@@ -1,0 +1,23 @@
+<!-- ################################################################ -->
+<!-- # The common interconnect of each LUTFF pair pb_type           # -->
+<!-- ################################################################ -->
+<interconnect>
+ <direct name="LUT.I[0]" input="lutff.in[0]"           output="LUT.I[0]" />
+ <direct name="LUT.I[1]" input="lutff.in[1]"           output="LUT.I[1]" />
+ <direct name="LUT.I[2]" input="lutff.in[2]"           output="LUT.I[2]" />
+ <mux    name="LUT.I[3]" input="lutff.in[3] lutff.cin" output="LUT.I[3]" />
+
+ <direct name="SB_CARRY.I0" input="lutff.in[1]" output="SB_CARRY.I0" />
+ <direct name="SB_CARRY.I1" input="lutff.in[2]" output="SB_CARRY.I1"  />
+
+ <direct name="lutff.lout" input="LUT.O"         output="lutff.lout" />
+
+ <!-- Carry chain -->
+ <direct name="lutff.cin"  input="lutff.cin"   output="SB_CARRY.CI">
+  <pack_pattern name="CARRYCHAIN" in_port="lutff.cin" out_port="SB_CARRY.CI"/>
+ </direct>
+ <direct name="lutff.cout" input="SB_CARRY.CO" output="lutff.cout">
+  <pack_pattern name="CARRYCHAIN" in_port="SB_CARRY.CO" out_port="lutff.cout"/>
+ </direct>
+
+</interconnect>
