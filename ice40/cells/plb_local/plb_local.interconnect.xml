@@ -90,7 +90,11 @@
  <direct name="out[7]" input="lutff[7].out" output="plb_local.out[7]"/>
 
  <!-- Carry chain -->
- <direct name="cin" input="plb_local.cin" output="lutff[0].cin"><pack_pattern name="CARRYCHAIN" in_port="plb_local.cin" out_port="lutff[0].cin"/></direct>
+ <direct name="cin" input="plb_local.cin" output="lutff[0].cin">
+   <!--
+     <pack_pattern name="CARRYCHAIN" in_port="plb_local.cin" out_port="lutff[0].cin"/>
+   -->
+ </direct>
 
  <direct name="carry[0]" input="lutff[0].cout" output="lutff[1].cin"     ><pack_pattern name="CARRYCHAIN" in_port="lutff[0].cout" out_port="lutff[1].cin"     /></direct>
  <direct name="carry[1]" input="lutff[1].cout" output="lutff[2].cin"     ><pack_pattern name="CARRYCHAIN" in_port="lutff[1].cout" out_port="lutff[2].cin"     /></direct>
