@@ -1,0 +1,11 @@
+<!-- set: ai sw=1 ts=1 sta et -->
+<!-- module SB_DFFS (output Q, input C, S, D); -->
+<pb_type name="SB_DFFS" num_pb="1" blif_model=".subckt SB_DFFS">
+ <output name="Q" num_pins="1"/>
+ <clock  name="C" num_pins="1"/>
+ <input  name="S" num_pins="1"/>
+ <input  name="D" num_pins="1"/>
+ <T_clock_to_Q max="10e-12" port="SB_DFFS.Q" clock="C"/>
+ <T_setup    value="10e-12" port="SB_DFFS.S" clock="C"/>
+ <T_setup    value="10e-12" port="SB_DFFS.D" clock="C"/>
+</pb_type>

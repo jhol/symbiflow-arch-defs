@@ -1,0 +1,13 @@
+<!-- set: ai sw=1 ts=1 sta et -->
+<!-- module SB_DFFESS (output Q, input C, E, S, D); -->
+<pb_type name="SB_DFFESS" num_pb="1" blif_model=".subckt SB_DFFESS">
+ <output name="Q" num_pins="1"/>
+ <clock  name="C" num_pins="1"/>
+ <input  name="E" num_pins="1"/>
+ <input  name="S" num_pins="1"/>
+ <input  name="D" num_pins="1"/>
+ <T_clock_to_Q max="10e-12" port="SB_DFFESS.Q" clock="C"/>
+ <T_setup    value="10e-12" port="SB_DFFESS.E" clock="C"/>
+ <T_setup    value="10e-12" port="SB_DFFESS.S" clock="C"/>
+ <T_setup    value="10e-12" port="SB_DFFESS.D" clock="C"/>
+</pb_type>
