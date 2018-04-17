@@ -94,7 +94,7 @@
   <input  name="i" num_pins="1" equivalent="true"/>
   <output name="o" num_pins="1" equivalent="true"/>
   <interconnect>
-   <mux name="i_to_o" input="carry_in_mux.i" output="carry_in_mux.o"><pack_pattern name="CARRYCHAIN" in_port="carry_in_mux.i" out_port="carry_in_mux.o" /></mux>
+   <mux name="i_to_o" input="carry_in_mux.i" output="carry_in_mux.o"/>
   </interconnect>
  </pb_type>
 
@@ -538,8 +538,8 @@
   <!-- # Internal Logic tracks                                        # -->
   <!-- ################################################################ -->
   <!-- Carry chain -->
-  <direct name="carry_in" input="BLK_TL-PLB.carry_in" output="PLB_LOCAL.FCIN"       ><pack_pattern name="CARRYCHAIN" in_port="BLK_TL-PLB.carry_in" out_port="PLB_LOCAL.FCIN"       /></direct>
-  <direct name="carry[X]" input="PLB_LOCAL.FCOUT"     output="BLK_TL-PLB.carry_out" ><pack_pattern name="CARRYCHAIN" in_port="PLB_LOCAL.FCOUT"     out_port="BLK_TL-PLB.carry_out" /></direct>
+  <direct name="carry_in" input="BLK_TL-PLB.carry_in" output="PLB_LOCAL.FCIN"       />
+  <direct name="carry[X]" input="PLB_LOCAL.FCOUT"     output="BLK_TL-PLB.carry_out" />
 
   <!-- Logic Unit 0 inputs -->
   <mux name="PLB_LOCAL.I0[0]"     input="                      local_g[0].o[0] local_g[2].o[0] local_g[1].o[1] local_g[3].o[1] local_g[0].o[2] local_g[2].o[2] local_g[1].o[3] local_g[3].o[3] local_g[0].o[4] local_g[2].o[4] local_g[1].o[5] local_g[3].o[5] local_g[0].o[6] local_g[2].o[6] local_g[1].o[7] local_g[3].o[7]                  " output="PLB_LOCAL.I0[0]" />

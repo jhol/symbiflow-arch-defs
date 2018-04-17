@@ -20,11 +20,7 @@
  <direct name="BLK_IG-LUTFF.LO" input="LUT.O"       output="BLK_IG-LUTFF.LO"/>
 
  <!-- Carry chain -->
- <direct name="BLK_IG-LUTFF.FCIN"  input="BLK_IG-LUTFF.FCIN"   output="SB_CARRY.CI">
-  <pack_pattern name="CARRYCHAIN" in_port="BLK_IG-LUTFF.FCIN" out_port="SB_CARRY.CI"/>
- </direct>
- <direct name="BLK_IG-LUTFF.FCOUT" input="SB_CARRY.CO" output="BLK_IG-LUTFF.FCOUT">
-  <pack_pattern name="CARRYCHAIN" in_port="SB_CARRY.CO" out_port="BLK_IG-LUTFF.FCOUT"/>
- </direct>
+ <direct name="BLK_IG-LUTFF.FCIN"  input="BLK_IG-LUTFF.FCIN" output="SB_CARRY.CI"/>
+ <direct name="BLK_IG-LUTFF.FCOUT" input="SB_CARRY.CO"       output="BLK_IG-LUTFF.FCOUT"/>
 
 </interconnect>
